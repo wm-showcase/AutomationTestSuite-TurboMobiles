@@ -12,6 +12,7 @@ pipeline {
         sh 'npm install cypress'
 
       }
+    }
       stage('run'){
         steps {
         sh 'npx cypress run  --spec "cypress/e2e/todo.cy.js" '
@@ -19,4 +20,3 @@ pipeline {
       } 
     }
   }
-}
