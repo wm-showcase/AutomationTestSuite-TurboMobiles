@@ -10,8 +10,8 @@ pipeline {
     stage('build and test') {
       steps {
         sh 'npm install cypress'
-        sh 'npm run  cy:run -- --spec "AutomationTestSuite-TurboMobiles/turbomobiles-automation-cypress/cypress/e2e/specs/todo.cy.js" '
+        sh 'npx cypress run  --spec "cypress/e2e/todo.cy.js" '
       }
     }
   }
-}
+} 
