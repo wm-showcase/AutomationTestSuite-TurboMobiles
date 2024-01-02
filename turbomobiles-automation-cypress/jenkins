@@ -1,6 +1,5 @@
 pipeline {
   agent {
-    // this image provides everything needed to run Cypress
     docker {
       image 'cypress/base:20.9.0'
     }
@@ -9,14 +8,14 @@ pipeline {
   stages {
     stage('build and test') {
       steps {
-        sh 'npm install cypress'
-
+        sh 'npm ci'
       }
     }
-      stage('run'){
-        steps {
-        sh 'npx cypress run  --spec "cypress/e2e/todo.cy.js" '
+
+    stage('run') {
+      steps {
+        sh 'npx cypress run --spec "cypress/e2e/todo.cy.js"'
       }
-      } 
     }
   }
+}
