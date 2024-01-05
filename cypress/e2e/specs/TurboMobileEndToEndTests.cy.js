@@ -6,22 +6,28 @@ import bringyourphonepage from '../pages/bringyourphone'
 import registrationpage from '../pages/registration'
 describe('Turbo Mobille End to End Tests',()=>{
   const shoppage=new shop()
+  let userdata;
 
     beforeEach(() => {
+
         cy.visit('https://dev-turbomobiles.onwavemaker.com/#/Home')
+        cy.fixture('login').then(function (testdata) {
+        userdata = testdata;
+        })
       })
 
 
-        it('VerifyUserIsAbleToLogin',()=>{
+        it.only('VerifyUserIsAbleToLogin',()=>{
+             cy.log(userdata.Username)
              shoppage.clickOnSelectPhone();
              shoppage.clickOnContinueButton();
-             shoppage.loginToAccount("zenmark@wm.com","Test@231");
+             shoppage.loginToAccount(userdata.username,userdata.password);
         })
 
-        it('VerifyUserIsAbleToCreateNewAccount',()=>{
+        it.only('VerifyUserIsAbleToCreateNewAccount',()=>{
           shoppage.clickOnSelectPhone();
           shoppage.clickOnContinueButton();
-          registrationpage.createNewAccount("Rana","test@gmail.com","Test@2314")
+          registrationpage.createNewAccount(userdata.fullName,userdata.email,userdata.registration_Password)
        })
 
         it('VerifyAvaliableSmartPhonesOnLandingPage',()=>{
