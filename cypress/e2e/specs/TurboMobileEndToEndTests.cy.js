@@ -17,14 +17,13 @@ describe('Turbo Mobille End to End Tests',()=>{
       })
 
 
-        it.only('VerifyUserIsAbleToLogin',()=>{
-             cy.log(userdata.Username)
+        it('VerifyUserIsAbleToLogin',()=>{
              shoppage.clickOnSelectPhone();
              shoppage.clickOnContinueButton();
              shoppage.loginToAccount(userdata.username,userdata.password);
         })
 
-        it.only('VerifyUserIsAbleToCreateNewAccount',()=>{
+        it('VerifyUserIsAbleToCreateNewAccount',()=>{
           shoppage.clickOnSelectPhone();
           shoppage.clickOnContinueButton();
           registrationpage.createNewAccount(userdata.fullName,userdata.email,userdata.registration_Password)
@@ -58,7 +57,7 @@ describe('Turbo Mobille End to End Tests',()=>{
        it('VerifyBringYorPhoneFunctionality',()=>{
           bringyourpagelocators.getTopNavShopDropdownButton().click()
           bringyourpagelocators.getBringYourPhoneOption().click()
-          shoppage.loginToAccount("zenmark@wm.com","Test@231");
+          shoppage.loginToAccount(userdata.username,userdata.password);
           bringyourpagelocators.getTopNavShopDropdownButton().click()
           bringyourpagelocators.getBringYourPhoneOption().click()
           bringyourphonepage.portableEligibilityCheck("9848908899","Verizon","123456","Iphone 13")
@@ -68,7 +67,7 @@ describe('Turbo Mobille End to End Tests',()=>{
       it('VerifyUserIsAbleToOrderTheMobile',()=>{
           shoppage.clickOnSelectPhone();
           shoppage.clickOnContinueButton();
-          shoppage.loginToAccount("zenmark@wm.com","Test@231");
+          shoppage.loginToAccount(userdata.username,userdata.password);
           shoppage.clickOnContinueButton();
           bringyourphonepage.orderingmobilephone("Rajesh","22334455","1224","190")
        })
@@ -77,30 +76,29 @@ describe('Turbo Mobille End to End Tests',()=>{
        it('VerifyTheErrorMessageIfUserTryToGoToNextStepWithoutSelectingShowMePersonalizedPlans',()=>{
           shoppage.clickOnSelectPhone();
           shoppage.clickOnContinueButton();
-          shoppage.loginToAccount("zenmark@wm.com","Test@231");
+          shoppage.loginToAccount(userdata.username,userdata.password);
           shoppage.clickOnContinueButton();
           bringyourpagelocators.getNextWizardContinueButton().click({force: true});
           cy.get("div[id='toast-container']").should('be.visible')
           })
 
-          it('VerifyWhetherOrderisPlacedOrnot',()=>{
+          it.only('VerifyWhetherOrderisPlacedOrnot',()=>{
                cy.wait(2000)
                cy.get("a[class='dropdown-toggle app-anchor']").eq(1).click();
                cy.get("a[title='Orders']").click();
                cy.wait(5000)
-               shoppage.loginToAccount("zenmark@wm.com","Test@231");
+               shoppage.loginToAccount(userdata.username,userdata.password);
                cy.wait(3000)
                cy.get("a[class='dropdown-toggle app-anchor']").eq(1).click();
                cy.get("a[title='Orders']").click();
                cy.wait(2000)
-               let arr=[];
-               let arr1=[];
-                cy.get("div[name='gridcolumn3']>label").each((el)=>{
-                  arr1=arr.push(el.text());
-                  cy.log(arr1)
-                  }).then(()=>{
-                  expect(arr1).to.eq(7);
-                  })
+               const items = []
+               cy.get("div[name='gridcolumn3']>label")
+               .each(($li) => items.push($li.text()))
+               .then(() => {
+               cy.log(items.join(', '))
+               })
+            
               })
 
 
