@@ -1,0 +1,2 @@
+Cypress.on('window:load', function(window) 
+{ const original = window.addEventListener;     window.addEventListener = function() {         if (arguments && arguments[0] === 'beforeunload') {             return;         }         return original.apply(this, arguments);     }; }); 
