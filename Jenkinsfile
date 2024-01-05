@@ -18,7 +18,7 @@ pipeline {
   }
   post{
     always{
-      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: "mochawesome-report", reportFiles: 'TurboMobilesReport.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: "reports", reportFiles: 'TurboMobilesReport.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
     }
   }
 }
