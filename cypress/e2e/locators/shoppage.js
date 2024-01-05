@@ -24,7 +24,7 @@ class shoppage{
     }
     
     getCapacity(){
-        return cy.xpath("//div[@name='listPhoneStorage']//li//label")
+        return cy.get("div[@name='listPhoneStorage']>label")
     }
     
     
@@ -32,10 +32,7 @@ class shoppage{
         return cy.get('button[div[name="container3"]') 
     }
     
-    getDontAddInsuranceButton(){
-        return cy.get
-        
-    }
+   
     getContinueButton(){
         return cy.get('button[name="buttonContinue"]')
     }

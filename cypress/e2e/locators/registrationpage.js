@@ -10,7 +10,7 @@ class registrationpage{
     }
 
     getEmailTextBox(){
-        return cy.get("wm-input[name='email_formWidget']")
+        return cy.get("input[name='email_formWidget']")
     }
 
     getPasswordTextbox(){

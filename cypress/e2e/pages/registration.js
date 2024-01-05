@@ -5,7 +5,7 @@ class registration{
 createNewAccount(name,email,password){
     registrationpagelocators.getRegistreationButton().click();
     registrationpagelocators.getFullNameTextBox().click().type(name)
-    registrationpagelocators.getEmailTextBox().click().type(email)
+    registrationpagelocators.getEmailTextBox().eq(1).click().type(email)
     registrationpagelocators.getPasswordTextbox().click().type(password)
     registrationpagelocators.getCreateAccountButton().click()
     shoppagelocators.getContinueButton().should('be.visible')
