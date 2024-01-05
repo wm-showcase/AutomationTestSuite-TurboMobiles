@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-22T19:12:57.185Z",
+    "end": "2023-08-22T19:13:07.876Z",
+    "duration": 10691,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2af7fa9e-3cf6-4cf8-97a4-ef8004db77e5",
+      "title": "",
+      "fullFile": "cypress/e2e/shopPhone.cy.js",
+      "file": "cypress/e2e/shopPhone.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e9e71ee4-159a-4f76-85fc-49eb49697a4d",
+          "title": "Mobile purchase flow",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Selects a phone",
+              "fullTitle": "Mobile purchase flow Selects a phone",
+              "timedOut": null,
+              "duration": 10663,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\n_HomePage.default.getSelectPhoneButton().click();\ncy.url().should('include', 'ProductDetails');\n_ProductDetailsPage.default.getColorOption().click();\n_ProductDetailsPage.default.getCapacityOption().click();\n_ProductDetailsPage.default.getContinueButton().click();",
+              "err": {},
+              "uuid": "85ae25d7-00c0-422c-a739-d9694c15eab0",
+              "parentUUID": "e9e71ee4-159a-4f76-85fc-49eb49697a4d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "85ae25d7-00c0-422c-a739-d9694c15eab0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10663,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "TurboMobilesReport",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "TurboMobilesReport",
+        "quiet": true,
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
