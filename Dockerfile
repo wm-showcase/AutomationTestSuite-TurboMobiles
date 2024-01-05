@@ -1,0 +1,2 @@
+FROM cypress/base:latest
+
