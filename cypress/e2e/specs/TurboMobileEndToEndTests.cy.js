@@ -17,7 +17,7 @@ describe('Turbo Mobille End to End Tests',()=>{
       })
 
 
-        it('VerifyUserIsAbleToLogin',()=>{
+        it.only('VerifyUserIsAbleToLogin',()=>{
              shoppage.clickOnSelectPhone();
              shoppage.clickOnContinueButton();
              shoppage.loginToAccount(userdata.username,userdata.password);
