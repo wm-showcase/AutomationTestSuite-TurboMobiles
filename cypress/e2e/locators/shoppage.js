@@ -44,6 +44,9 @@ class shoppage{
     getMonthlyBoostGB(){
         return cy.get("button[name='buttonSelectAddonCard']")
     }
+    getPleaseSelectPlanToaster(){
+       return cy.get("div[id='toast-container']")
+    }
     }
     const shoppagelocators= new shoppage
     export default shoppagelocators

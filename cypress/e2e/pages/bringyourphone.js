@@ -20,13 +20,16 @@ portableEligibilityCheck(phoneNum,selectValue,acctNum,mobile){
 
 orderingmobilephone(cardHolderName,cardNumber,expiryDate){
     bringyourpagelocators.getShowMePersonalizedPlansButton().click({force: true});
+    cy.wait(4000)
     bringyourpagelocators.getSelectBasicButton().click({force: true});
     bringyourpagelocators.getNextWizardContinueButton().click({force: true});
     bringyourpagelocators.getNextWizardContinueButton().click({force: true});
     bringyourpagelocators.getSimType().click({force: true});
+    cy.wait(3000)
     for(let i=0;i<=2;i++){
     bringyourpagelocators.getNextWizardContinueButton().click({force: true});
     }
+    cy.wait(2000)
     bringyourpagelocators.getCardHolderName().click({force: true}).type(cardHolderName,{force: true})
     bringyourpagelocators.getCardNumber().click({force: true}).type(cardNumber,{force: true})
     bringyourpagelocators.getExpiryDate().type(expiryDate,{force: true})
@@ -36,6 +39,9 @@ orderingmobilephone(cardHolderName,cardNumber,expiryDate){
     bringyourpagelocators.getPaymentSuccessfullLabel().should('have.text','Payment Successful!')
     bringyourpagelocators.getGoToOrdersButton().click({force: true})
 }
+
+
+
 
 }
 const bringyourphonepage = new bringyourphone();
