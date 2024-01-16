@@ -12,7 +12,7 @@ pipeline {
     stage('run spec file') {
       steps {
         sh 'npm ci'
-        sh 'npx cypress run --spec "cypress/e2e/specs/TurboMobileEndToEndTests.cy.js"'
+        sh 'npx cypress run --spec "cypress/e2e/specs/"'
       }
     }
   }
