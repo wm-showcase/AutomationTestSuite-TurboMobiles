@@ -47,6 +47,9 @@ class shoppage{
     getPleaseSelectPlanToaster(){
        return cy.get("div[id='toast-container']")
     }
+    getErrorToaster(){
+        return cy.get("div[id='toast-container']")
+    }
     }
     const shoppagelocators= new shoppage
     export default shoppagelocators

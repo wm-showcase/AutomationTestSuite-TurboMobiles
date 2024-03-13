@@ -8,12 +8,18 @@ clickOnSelectPhone(){
     shoppagelocators.getSelectPhoneButton().eq(0).click({ multiple: true })
     cy.wait(5000)
 }
-
 clickOnContinueButton(){
-    shoppagelocators.getContinueButton().click()
-    cy.wait(2000)
-  
+   shoppagelocators.getContinueButton().click() 
 }
+
+clickOnContinueButtonAfterLogin(){
+    cy.intercept({
+    path: '/prefabs/ShopPhones/FlankerDBAPI/flanker_db/PhoneBrand?page=1&size=20'
+    }).as('priceplan')
+    shoppagelocators.getContinueButton().click()
+    cy.wait('@priceplan').its('response.statusCode').should('eq', 200) 
+}
+
 
 loginToAccount(email,password){
    
@@ -25,16 +31,16 @@ loginToAccount(email,password){
 orderingMobileHhoneWithDataAddOns(cardHolderName,cardNumber,expiryDate){
     bringyourpagelocators.getShowMePersonalizedPlansButton().click({force: true});
     cy.wait(2000)
-    bringyourpagelocators.getSelectBasicButton().click({force: true});
+    bringyourpagelocators.getSelectBasicButton().click();
     cy.wait(4000)
     bringyourpagelocators.getNextWizardContinueButton().click({force: true});
     cy.get("li[class='app-list-item-group clearfix']>ul>ul>li button[name='buttonSelectAddonCard']").eq(0).click()
     bringyourpagelocators.getNextWizardContinueButton().click({force: true});
     bringyourpagelocators.getSimType().click({force: true});
-    for(let i=0;i<=2;i++){
-    bringyourpagelocators.getNextWizardContinueButton().click({force: true});
-    }
+    cy.get("button[name='nextBtn_wizard1']").click()
     cy.get("div[name='gridcolumn5'] label[name='label12']").should('have.text','Add Ons')
+    bringyourpagelocators.getNextWizardContinueButton().click({force: true});
+    bringyourpagelocators.getNextWizardContinueButton().click({force: true});
     bringyourpagelocators.getCardHolderName().click({force: true}).type(cardHolderName,{force: true})
     bringyourpagelocators.getCardNumber().click({force: true}).type(cardNumber,{force: true})
     bringyourpagelocators.getExpiryDate().type(expiryDate,{force: true})
@@ -42,7 +48,8 @@ orderingMobileHhoneWithDataAddOns(cardHolderName,cardNumber,expiryDate){
     bringyourpagelocators.getContinueToPaymentButton().click({force: true})
     bringyourpagelocators.getPaymentConfirmationConfirmButton().click({force: true})
     bringyourpagelocators.getPaymentSuccessfullLabel().should('have.text','Payment Successful!')
-    bringyourpagelocators.getGoToOrdersButton().click({force: true})
+    bringyourpagelocators.getGoToOrdersButton().click()
+    cy.wait(3000)
 }
 
 selectAndDeselectDataAddOns(){

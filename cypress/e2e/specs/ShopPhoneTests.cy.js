@@ -2,6 +2,7 @@
 import shop from '../pages/shop'
 import bringyourpagelocators from '../locators/bringyourphonepage'
 import bringyourphonepage from '../pages/bringyourphone'
+import shoppagelocators from "../locators/shoppage"
 import dashboardpagelocators from '../locators/dashboardpage'
 
 describe('ShopPhone Tests',()=>{
@@ -63,13 +64,14 @@ describe('ShopPhone Tests',()=>{
         .then(() => {
         cy.log(items.join(', '))
 
-        })
+        });
        
         if(items.includes("a few seconds ago")){
              cy.log("order placed successfully")
         }
         else{
-             cy.log("Ordeer not placed")
+          throw new Error('Order not placed');
+       
         }
    })
 
@@ -77,7 +79,7 @@ describe('ShopPhone Tests',()=>{
         shoppage.clickOnSelectPhone();
         shoppage.clickOnContinueButton();
         shoppage.loginToAccount(userdata.username,userdata.password);
-        shoppage.clickOnContinueButton();
+        shoppage.clickOnContinueButtonAfterLogin();
         shoppage.orderingMobileHhoneWithDataAddOns(userdata.cardHolderName,userdata.cardNumber,userdata.expiryDate,userdata.cvvNumber)
      })
 
@@ -90,13 +92,13 @@ describe('ShopPhone Tests',()=>{
      })
 
 
-       it('VerifyTheErrorMessageIfUserTryToGoToNextStepWithoutSelectingShowMePersonalizedPlans',()=>{
+    it('VerifyTheErrorMessageIfUserTryToGoToNextStepWithoutSelectingShowMePersonalizedPlans',()=>{
           shoppage.clickOnSelectPhone();
           shoppage.clickOnContinueButton();
           shoppage.loginToAccount(userdata.username,userdata.password);
           shoppage.clickOnContinueButton();
           bringyourpagelocators.getNextWizardContinueButton().click({force: true});
-          cy.get("div[id='toast-container']").should('be.visible')
+          shoppagelocators.getErrorToaster().should('be.visible')
           })
 
           

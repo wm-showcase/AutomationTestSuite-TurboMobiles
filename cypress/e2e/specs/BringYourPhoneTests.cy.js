@@ -42,12 +42,12 @@ describe('BringYourPhone Tests',()=>{
         })
        
         if(items.includes("a few seconds ago")){
-          
-             cy.log("order placed successfully")
+         cy.log("order placed")
         }
         else{
-         cy.log("Order Not Placed")
+          throw new Error("order not placed")
         }
+       
    })
           
      })

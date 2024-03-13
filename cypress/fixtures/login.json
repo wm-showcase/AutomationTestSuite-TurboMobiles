@@ -6,6 +6,7 @@
   "email":"test@gmail.com",
   "registration_Password":"Test@123",
   "myAccountDropdownOptions":["Profile","Billing","Orders","Security","Privacy","Rewards","Preferences"],
+  "dashboardTopNavOptions":["One-Stop Shop for All","Your Mobile Needs","Find, compare, and purchase perfect phone"],
   "shopDropdownOptions":["Shop Phone","Bring Your Phone","Shop Broadband"],
   "phoneNumber":"9848903955",
   "selectCarrier":"Verizon",

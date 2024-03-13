@@ -9,12 +9,12 @@ class registrationpage{
         return cy.get("input[name='name_formWidget']")
     }
 
-    getEmailTextBox(){
-        return cy.get("input[name='email_formWidget']")
+    getRegistrationEmailTextBox(){
+        return cy.get("input.form-control[name='email_formWidget']")
     }
 
     getPasswordTextbox(){
-        return cy.get("input[name='password_formWidget']")
+        return cy.get("input.form-control[name='password_formWidget']")
     }
 
     getCreateAccountButton(){

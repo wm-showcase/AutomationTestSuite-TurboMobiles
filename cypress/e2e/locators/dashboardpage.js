@@ -1,8 +1,23 @@
 class dashboardpage{
 
+
+    getMyAccountDropdown(){
+        return cy.get("a[class='dropdown-toggle app-anchor']")
+    }
+
+    getOrderOption(){
+        return cy.get("a[title='Orders']")
+    }
     getMyAccountDropdownOptions(){
         return cy.get("ul>li[class='app-nav-item'] li span")
     
+    }
+    getDashboardHeadingLabels(){
+        return cy.get("div[name='linearlayoutitem1'] label")
+    }
+
+    getTurboMobilesLogo(){
+        return cy.get("div[name='headerleft']")
     }
 
     getMyAccountDropdownButton(){
