@@ -1,10 +1,24 @@
 {
   "username": "zenmark@wm.com",
-  "password": "Pramati@231",
+  "password": "Test@231",
   "dropdownOptions": ["Not important","Nice-to-have","Important","Critical"],
   "fullName":"test",
   "email":"test@gmail.com",
-  "registration_Password":"Test@123"
+  "registration_Password":"Test@123",
+  "myAccountDropdownOptions":["Profile","Billing","Orders","Security","Privacy","Rewards","Preferences"],
+  "dashboardTopNavOptions":["One-Stop Shop for All","Your Mobile Needs","Find, compare, and purchase perfect phone"],
+  "shopDropdownOptions":["Shop Phone","Bring Your Phone","Shop Broadband"],
+  "phoneNumber":"9848903955",
+  "selectCarrier":"Verizon",
+  "accountNumber":"123456",
+  "phoneBrand":"Iphone 13",
+  "cardHolderName":"Rajesh",
+  "cardNumber":"223344",
+  "expiryDate":"1223",
+  "cvvNumber":"245"
+
+
+
 
   
 }

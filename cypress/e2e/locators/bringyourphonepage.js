@@ -61,6 +61,10 @@ class bringyourphonepage{
     return cy.get("div[name='stvSimTypesList1']>ul[role='list']>:nth-child(1)")
     }
 
+    getSimContinueButton(){
+        return  cy.get("button[name='nextBtn_wizard1']")
+    }
+
     getCardHolderName(){
     return cy.get("input[name='cardholderName_formWidget']")
     }
